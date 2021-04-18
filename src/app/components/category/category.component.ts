@@ -8,9 +8,9 @@ import { CategoryService } from 'src/app/services/category.service';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
-
+  
   categories : Category[]=[];
-  currentCategory : Category;
+  currentCategory : Category | null; //şu anki kategoridir. Hangi kategoriyle çalışmak istediğim
   constructor(private categoryService:CategoryService) { }
 
   ngOnInit(): void {
@@ -30,6 +30,19 @@ export class CategoryComponent implements OnInit {
     if(category ==this.currentCategory){
       return "list-group-item active"
     }else{
+      return "list-group-item"
+    }
+  }
+
+  setAllCategory(){
+    this.currentCategory = null;
+  }
+
+  getAllCategoryClass(){
+    if(!this.currentCategory){
+    return "list-group-item active"
+    }
+    else{
       return "list-group-item"
     }
   }

@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css'],
 })
+
 export class ProductComponent implements OnInit {
   products: Product[] = [];
   dataLoaded = false;
